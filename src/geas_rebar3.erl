@@ -22,7 +22,7 @@ init(State) ->
             {deps, ?DEPS},              % The list of dependencies
             {example, "rebar geas"},    % How to use the plugin
             {opts, []},                 % list of options understood by the plugin
-            {short_desc, "geas rebar3 plugin"},
+            {short_desc, "Geas rebar3 plugin"},
             {desc, "See https://github.com/crownedgrouse/geas"}
     ]),
     {ok, rebar_state:add_provider(State, Provider)}.
