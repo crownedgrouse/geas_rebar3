@@ -4,7 +4,7 @@
 -export([init/1, do/1, format_error/1]).
 
 -define(PROVIDER, geas).
--define(DEPS, [geas]).
+-define(DEPS, [compile]).
 
 %% ===================================================================
 %% Public API
