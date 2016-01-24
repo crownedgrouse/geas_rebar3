@@ -32,6 +32,7 @@ init(State) ->
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
 	geas:compat("."),
+	geas:guilty("."),
     {ok, State}.
 
 %% When an exception is raised or a value returned as
