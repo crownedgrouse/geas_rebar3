@@ -31,9 +31,11 @@ init(State) ->
 %% and dependencies have been run.
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-	geas:compat("."),
-	geas:guilty("."),
-    {ok, State}.
+	case catch geas:compat(".") of
+		 {error, Reason} -> {error, Reason} ;
+		 _               ->	geas:guilty("."),
+    						{ok, State}
+	end.
 
 %% When an exception is raised or a value returned as
 %% `{error, {?MODULE, Reason}}` will see the `format_error(Reason)`
