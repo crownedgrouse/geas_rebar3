@@ -11,6 +11,11 @@ Simply add in your global config file `~/.config/rebar3/rebar.config` :
 
 ```
 
+Note : Windows users can set this in `%userprofile%\.config\rebar3\rebar.config`.
+
+This avoid to add it in local `rebar.config` in all your projects.
+
+
 Please open trouble ticket here only if it is related to plugin only.
 
 Geas issue have to be opened [there](https://github.com/crownedgrouse/geas/issues).
