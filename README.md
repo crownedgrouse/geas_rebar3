@@ -10,6 +10,13 @@ Simply add in your global config file `~/.config/rebar3/rebar.config` :
 ]}.
 
 ```
+or simply (using hex packages)
+
+```
+{plugins, [geas_rebar3]}.
+
+```
+
 then run 
 
 ```
