@@ -27,6 +27,10 @@ Note : Windows users can set this in `%userprofile%\.config\rebar3\rebar.config`
 
 This avoid to add it in local `rebar.config` in all your projects.
 
+## Branches
+
+Using 'dev' branch of this project will use also 'dev' branch of `geas` repository.
+
 ## Troubles 
 Please open trouble ticket here only if it is related to plugin only.
 
