@@ -10,7 +10,7 @@ Simply add in your global config file `~/.config/rebar3/rebar.config` :
 ]}.
 
 ```
-or simply (using hex packages)
+or simply (using hex package [geas_rebar3](https://hex.pm/packages/geas_rebar3))
 
 ```
 {plugins, [geas_rebar3]}.
