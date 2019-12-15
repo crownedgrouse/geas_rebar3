@@ -33,9 +33,8 @@ init(State) ->
 do(State) ->
   %Conf = [], % TODO
 	%case catch geas:compat(".", print, Conf) of
-  case catch geas:compat(".") of
-		{error, Reason} 
-            -> {error, Reason} ;
+  	case catch geas:compat(".", print) of
+		{error, Reason} -> {error, Reason} ;
 		_  -> geas:guilty("."),
           Exit = get(geas_exit_code),
           Msg  = case Exit of
