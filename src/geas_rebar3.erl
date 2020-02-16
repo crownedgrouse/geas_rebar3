@@ -42,6 +42,7 @@ do(State) ->
                     2 -> "Release window do not match required semver version range";
                     3 -> "Incompatible BEAM file, may need recompilation";
                     4 -> "Incompatible BEAM maximum opcode, may need recompilation";
+                    5 -> "Release window do not match required semver version frame";
                     _ -> "Unexpected geas exit code"
                  end,
           case Exit of
