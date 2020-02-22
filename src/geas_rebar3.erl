@@ -31,25 +31,18 @@ init(State) ->
 %% and dependencies have been run.
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-  %Conf = [], % TODO
-	%case catch geas:compat(".", print, Conf) of
-  	case catch geas:compat(".", print) of
-		{error, Reason} -> {error, Reason} ;
-		_  -> geas:guilty("."),
-          Exit = get(geas_exit_code),
-          Msg  = case Exit of
-                    1 -> "Current version is incompatible with release window";
-                    2 -> "Release window do not match required semver version range";
-                    3 -> "Incompatible BEAM file, may need recompilation";
-                    4 -> "Incompatible BEAM maximum opcode, may need recompilation";
-                    5 -> "Release window do not match required semver version frame";
-                    _ -> "Unexpected geas exit code"
-                 end,
-          case Exit of
-            0 -> {ok, State};
-            _ -> rebar_api:error("~ts", [Msg]),
-                 erlang:halt(Exit)
-          end
+   Conf = rebar_state:get(State, geas, []),
+   case catch geas:compat(".", print, Conf) of
+      {error, Reason}  -> rebar_api:error("geas: ~p", [{error, Reason}]) ;
+      {'EXIT', Reason} -> rebar_api:error("geas: ~p", [{error, Reason}]) ;
+      _  -> geas:guilty("."),
+            Exit = get(geas_exit_code),
+            Msg  =  geas:format_error(Exit),
+            case Exit of
+               0 -> {ok, State};
+               _ -> rebar_api:error("~ts", [Msg]),
+                    erlang:halt(Exit)
+            end
 	end.
 
 %% When an exception is raised or a value returned as
