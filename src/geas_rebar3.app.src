@@ -6,7 +6,6 @@
   {env, []},
   {pkg_name,"geas_rebar3"},
   {licenses,["ISC"]},
-  {maintainers,["Eric Pailleau"]},
   {links,[{"Github","https://github.com/crownedgrouse/geas_rebar3"},
           {"Wiki","https://github.com/crownedgrouse/geas/wiki/Rebar-plugins"}]}
 
