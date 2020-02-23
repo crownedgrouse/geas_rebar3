@@ -25,7 +25,7 @@ rebar3 geas
 
 Note : Windows users can set this in `%userprofile%\.config\rebar3\rebar.config`.
 
-This avoid to add it in local `rebar.config` in all your projects.
+Important : build plugins must not be set in local rebar.config. Otherwise those plugins will be part of geas analyse.
 
 ## Branches
 
