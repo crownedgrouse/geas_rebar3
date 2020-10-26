@@ -1,6 +1,6 @@
 {application, geas_rebar3, [
   {description, "Plugin to run GEAS with rebar3"},
-  {vsn, "1.4.0"},
+  {vsn, "1.4.1"},
   {registered, []},
   {applications, [kernel, stdlib]},
   {env, []},
