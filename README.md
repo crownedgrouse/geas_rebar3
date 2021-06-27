@@ -27,6 +27,13 @@ Note : Windows users can set this in `%userprofile%\.config\rebar3\rebar.config`
 
 Important : build plugins must not be set in local rebar.config. Otherwise those plugins will be part of geas analyze.
 
+## Donations ##
+
+If you find this project useful, and help it to be maintained, please donate to:
+
+    Bitcoin: 1Ep9VoyNtnNiGoXM52V6NwcMh4SZ9bxkAG
+    Ethereum: 0xfac5e46ffe12ec1fc2830d95c22e6583d163d7f9 
+
 ## Branches
 
 Using 'dev' branch of this project will also use the 'dev' branch of `geas` repository.
