@@ -29,7 +29,7 @@ Important : build plugins must not be set in local rebar.config. Otherwise those
 
 ## Donations ##
 
-If you find this project useful, and help it to be maintained, please donate to:
+Help this project to be maintained ! If you find this project useful, please donate to:
 
     Bitcoin: 1Ep9VoyNtnNiGoXM52V6NwcMh4SZ9bxkAG
     Ethereum: 0xfac5e46ffe12ec1fc2830d95c22e6583d163d7f9 
