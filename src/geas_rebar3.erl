@@ -32,18 +32,22 @@ init(State) ->
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
    Conf = rebar_state:get(State, geas, []),
-   case catch geas:compat(".", print, Conf) of
-      {error, Reason}  -> rebar_api:error("geas: ~p", [{error, Reason}]) ;
-      {'EXIT', Reason} -> rebar_api:error("geas: ~p", [{error, Reason}]) ;
-      _  -> geas:guilty("."),
-            Exit = get(geas_exit_code),
-            Msg  =  geas:format_error(Exit),
-            case Exit of
-               0 -> {ok, State};
-               _ -> rebar_api:error("~ts", [Msg]),
-                    erlang:halt(Exit)
-            end
-	end.
+   try 
+      geas:compat(".", print, Conf), 
+      case get(geas_exit_code) of
+	      0 -> geas:guilty(".");
+	      _ -> skip
+      end,
+      Exit = get(geas_exit_code),
+      Msg  =  geas:format_error(Exit),
+      case Exit of
+         0 -> {ok, State};
+         _ -> rebar_api:error("~ts", [Msg]),
+              erlang:halt(Exit)
+      end
+   catch _:Reason ->  
+      rebar_api:error("geas: ~p", [{error, Reason}])
+   end.
 
 %% When an exception is raised or a value returned as
 %% `{error, {?MODULE, Reason}}` will see the `format_error(Reason)`
